@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation & Variable</title>
+    <h2>Ex8. Animation & Variable</h2>
+    <style>
+        h2{
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+        .wrapper{
+        background-color: #d3d3d3;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .drop{
+        font-size: 20px;
+        transform: translateY(-100vh);
+        animation: dropAnime 300ms linear forwards  calc(var(--order)*200ms);
+        
+    }
+
+    @keyframes dropAnime {
+        from{
+            visibility: hidden;
+            transform: translateY(-100vh);
+        }
+        to{
+            visibility: visible;
+            transform: translateY(0%);
+        }
+    }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <span class="drop" style="--order: 1">🥳</span>
+        <span class="drop" style="--order: 2">😜</span>
+        <span class="drop" style="--order: 3">😍</span>
+    </div>
+</body>
+</html>

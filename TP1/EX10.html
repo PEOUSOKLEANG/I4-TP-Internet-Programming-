@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX10</title>
+    <h2>Ex10. Scrollable content</h2>
+    <style>
+        h2{
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        body{
+            max-width: 500px;
+            margin: auto;
+            padding: 10px;
+        }
+        .container{
+            border: 2px solid black;
+            width: 500px;
+            height: 550px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+        .header{
+            font-size: 2rem;
+            background-color:#db8181 ;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin: .7rem .5rem 0 1rem;
+        }
+        .box-container{
+            padding: .4rem;
+            margin: .5rem 0;
+            margin-left: .7rem;
+            margin-right: .2rem;
+            overflow: auto;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 1rem;
+            
+        }
+        .box{
+            background-color: #84cb79;
+            aspect-ratio: 1/1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Scroll Vertically
+        </div>
+        <div class="box-container">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+</body>
+</html>
