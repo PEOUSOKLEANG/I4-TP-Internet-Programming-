@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+        .container {
+            width: 25rem;
+            height: 25rem;
+            padding: 20px;
+            border: 1px solid black;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+        }
+
+        .emoji {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 30px;
+        }
+
+        .wrapper {
+            font-family: "Indie Flower";
+            margin-top: 10px;
+            text-align: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        button {
+            border-radius: 0.6em;
+            height: 30px;
+            border: #3333ff;
+            color: azure;
+            background-color: #3333ff;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .delay {
+            border: 3px solid #D3D3D3;
+            width: 10rem;
+            height: 5rem;
+            padding: 30px;
+            margin: auto;
+            margin-top: 30px;
+            text-align: center;
+            background-color: #D3D3D3;
+            border-radius: 0.5rem;
+        }
+
+        /* to get space from display of the text
+     display: flex;
+    flex-direction: column;
+    gap: 10px; */
+        .box {
+            border: 1px solid #CCCCCC;
+            border-radius: 1rem;
+            margin-top: 40px;
+            padding: 10px;
+            background-color: #CBCBCB;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .box> :nth-child(1) {
+            text-align: center;
+            font-weight: bold;
+
+        }
+
+        i {
+            color: blue;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="emoji"><i class="em em-face_with_cowboy_hat" aria-role="presentation"
+                aria-label="FACE WITH COWBOY HAT"></i></div>
+        <div class="wrapper">Are you boring?</div>
+        <div class="btn">
+            <button id="enter" onclick="getresult()">Get me an activity</button>
+        </div>
+        <div>
+
+            <div id="result"></div>
+
+        </div>
+    </div>
+   <script>
+        let click = document.getElementById("enter");
+        let result = document.getElementById("result");
+
+
+
+        function getresult() {
+
+            let url = ('https://www.boredapi.com/api/activity');
+            result.innerHTML = `
+        <div class="delay">Loading.....</div>
+        `;
+            fetch(url).then((resp) => resp.json()).then((data) => {
+                result.innerHTML = `
+            <div class="box">
+                <div>${data.activity}</div>
+                <div><i class='bx bxs-purchase-tag-alt'></i> <b>Type</b>: ${data.type}</div>
+                <div><i class='bx bxs-group' ></i> <b>Participartion</b>: ${data.participants}</div>
+                <div><i class='bx bxs-dollar-circle' ></i> <b>Price</b>: ${data.price}</div>
+                <div><i class='bx bx-link-alt'></i> <b>Link</b>: ${data.link}</div>
+            </div>
+        `;
+            });
+        }
+
+    </script> 
+    
+
+</body>
+
+</html>
